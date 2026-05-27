@@ -2,26 +2,26 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { DraftingCompass, Rocket, Search, Settings } from "lucide-react";
+import { Cpu, Rocket, Telescope, WandSparkles } from "lucide-react";
 
 const STEPS = [
   {
     number: "1",
     title: "Llamada de Descubrimiento",
     description: "Consulta de 30 minutos para entender tus mayores desperdicios de tiempo y ver si IA puede ayudar",
-    icon: Search,
+    icon: Telescope,
   },
   {
     number: "2",
     title: "Diseño del Sistema",
     description: "Mapeamos tu workflow, definimos requerimientos y creamos un blueprint técnico",
-    icon: DraftingCompass,
+    icon: WandSparkles,
   },
   {
     number: "3",
     title: "Desarrollo",
     description: "Construimos el sistema con check-ins semanales. Ves progreso, no solo al final",
-    icon: Settings,
+    icon: Cpu,
   },
   {
     number: "4",

@@ -13,6 +13,33 @@ const BADGE_STYLES: Record<string, {
   purple: { bg: "#F3E8FF", text: "#6B21A8", border: "#C084FC", calloutBg: "#FAF5FF", glow: "rgba(192,132,252,0.2)" },
 };
 
+const CALLOUT_STYLES: Record<"yellow" | "blue" | "green" | "purple", {
+  box: string;
+  title: string;
+  text: string;
+}> = {
+  yellow: {
+    box: "bg-amber-50 dark:bg-amber-950/55",
+    title: "text-amber-800 dark:text-amber-200",
+    text: "text-slate-600 dark:text-amber-100",
+  },
+  blue: {
+    box: "bg-blue-50 dark:bg-blue-950/55",
+    title: "text-blue-800 dark:text-blue-200",
+    text: "text-slate-600 dark:text-blue-100",
+  },
+  green: {
+    box: "bg-green-50 dark:bg-emerald-950/60",
+    title: "text-green-800 dark:text-emerald-200",
+    text: "text-slate-600 dark:text-emerald-100",
+  },
+  purple: {
+    box: "bg-purple-50 dark:bg-purple-950/60",
+    title: "text-purple-800 dark:text-purple-200",
+    text: "text-slate-600 dark:text-purple-100",
+  },
+};
+
 interface ProjectCardProps {
   number: string;
   title: string;
@@ -31,6 +58,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const s = BADGE_STYLES[badgeColor];
+  const calloutStyles = CALLOUT_STYLES[badgeColor];
 
   return (
     <motion.div
@@ -38,9 +66,9 @@ export function ProjectCard({
       onHoverEnd={() => setHovered(false)}
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
-      className="bg-white rounded-2xl p-8 relative overflow-hidden h-full flex flex-col"
+      className="bg-white dark:bg-slate-900/80 rounded-2xl p-8 relative overflow-hidden h-full flex flex-col"
       style={{
-        border: `1px solid ${hovered ? s.border : "#f1f5f9"}`,
+        border: `1px solid ${hovered ? s.border : "color-mix(in oklab, var(--border) 65%, transparent)"}`,
         boxShadow: hovered
           ? `0 24px 64px ${s.glow}, 0 0 0 1px ${s.border}60`
           : "0 1px 4px rgba(0,0,0,0.04)",
@@ -61,26 +89,41 @@ export function ProjectCard({
       <div
         className="text-8xl font-black leading-none mb-3 select-none"
         style={{
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          opacity: 0.1,
           fontFamily: "var(--font-syne, sans-serif)",
           letterSpacing: "-0.06em",
         }}
         aria-hidden="true"
       >
-        {number}
+        <span
+          className="dark:hidden"
+          style={{
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            opacity: 0.1,
+          }}
+        >
+          {number}
+        </span>
+        <span
+          className="hidden dark:inline"
+          style={{
+            color: "rgba(255,255,255,0.28)",
+            textShadow: "0 0 28px rgba(167,139,250,0.18)",
+          }}
+        >
+          {number}
+        </span>
       </div>
 
       <h3
-        className="text-xl font-bold text-slate-900 mb-3 leading-snug"
+        className="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-snug"
         style={{ fontFamily: "var(--font-syne, sans-serif)", letterSpacing: "-0.025em" }}
       >
         {title}
       </h3>
-      <p className="text-slate-500 text-sm leading-relaxed mb-6">{description}</p>
+      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">{description}</p>
 
       {/* Metrics */}
       {metrics && (
@@ -108,7 +151,7 @@ export function ProjectCard({
       {/* Features */}
       <ul className="space-y-2 mb-6 flex-1" aria-label="Características">
         {features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
+          <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300">
             <span
               className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
               style={{ background: s.border }}
@@ -121,14 +164,18 @@ export function ProjectCard({
 
       {/* Callout */}
       <div
-        className="rounded-xl p-4 border-l-4 text-sm mt-auto"
-        style={{ background: s.calloutBg, borderLeftColor: s.border }}
+        className={`rounded-xl p-4 border-l-4 text-sm mt-auto ${calloutStyles.box}`}
+        style={{
+          borderLeftColor: s.border,
+        }}
       >
-        <span className="inline-flex items-center gap-1.5 font-semibold" style={{ color: s.text }}>
+        <span
+          className={`inline-flex items-center gap-1.5 font-semibold ${calloutStyles.title}`}
+        >
           <CalloutIcon size={15} strokeWidth={2.2} aria-hidden="true" />
           {calloutTitle}
         </span>{" "}
-        <span className="text-slate-600">{callout}</span>
+        <span className={calloutStyles.text}>{callout}</span>
       </div>
     </motion.div>
   );

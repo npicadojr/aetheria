@@ -39,7 +39,7 @@ export function StatsBar() {
   const inView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" });
 
   return (
-    <section ref={ref} className="py-16 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden" aria-label="Estadísticas">
+    <section ref={ref} className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300" aria-label="Estadísticas">
       <div className="dot-grid-light absolute inset-0 pointer-events-none" aria-hidden="true" />
       <div className="max-w-5xl mx-auto relative">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
@@ -52,7 +52,7 @@ export function StatsBar() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="gradient-border-top bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="gradient-border-top bg-white dark:bg-slate-900/80 rounded-2xl p-6 text-center shadow-sm hover:shadow-md dark:shadow-black/20 transition-all duration-300"
             >
               <div className="mb-2 flex justify-center" aria-hidden="true">
                 <Icon size={26} className="text-violet-500" strokeWidth={2.1} />
@@ -70,8 +70,8 @@ export function StatsBar() {
               >
                 <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </div>
-              <p className="text-sm font-semibold text-slate-700 mb-0.5" style={{ fontFamily: "var(--font-syne, sans-serif)" }}>{stat.label}</p>
-              <p className="text-xs text-slate-400">{stat.description}</p>
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-100 mb-0.5" style={{ fontFamily: "var(--font-syne, sans-serif)" }}>{stat.label}</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500">{stat.description}</p>
             </motion.div>
             );
           })}

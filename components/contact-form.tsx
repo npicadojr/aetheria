@@ -14,9 +14,9 @@ import {
 import { AlertTriangle, Loader2, CheckCircle2 } from "lucide-react";
 
 const SERVICES = [
-  { value: "knowledge-assistant", label: "Asistente de conocimiento empresarial" },
-  { value: "voice-calling", label: "Sistema de llamadas con IA" },
-  { value: "other", label: "Otro / Consulta general" },
+  { value: "Conocimiento empresarial", label: "Conocimiento empresarial" },
+  { value: "Sistema de llamadas con IA", label: "Sistema de llamadas con IA" },
+  { value: "Consulta general", label: "Consulta general" },
 ];
 
 const shakeVariants = {
@@ -27,7 +27,7 @@ const inputStyle = {
   fontFamily: "var(--font-dm-sans, sans-serif)",
   fontSize: "0.9rem",
   borderRadius: "0.6rem",
-  border: "1px solid #e2e8f0",
+  border: "1px solid color-mix(in oklab, var(--border) 85%, transparent)",
   transition: "border-color 0.2s, box-shadow 0.2s",
 };
 
@@ -125,8 +125,8 @@ export function ContactForm() {
           transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-2xl p-8 shadow-2xl"
           style={{
-            background: "rgba(255,255,255,0.97)",
-            border: "1px solid rgba(255,255,255,0.9)",
+            background: "color-mix(in oklab, var(--card) 96%, transparent)",
+            border: "1px solid color-mix(in oklab, var(--border) 70%, transparent)",
             backdropFilter: "blur(20px)",
           }}
         >
@@ -147,10 +147,10 @@ export function ContactForm() {
                 >
                   <CheckCircle2 size={64} className="text-green-500" strokeWidth={1.5} />
                 </motion.div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3" style={{ fontFamily: "var(--font-syne, sans-serif)" }}>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3" style={{ fontFamily: "var(--font-syne, sans-serif)" }}>
                   ¡Gracias!
                 </h3>
-                <p className="text-slate-500 mb-8 leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
                   Recibimos tu consulta. Te contactaremos en las próximas 24 horas.
                 </p>
                 <button
@@ -164,7 +164,7 @@ export function ContactForm() {
               <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="fullName" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                       Nombre completo <span className="text-red-500">*</span>
                     </label>
                     <motion.div variants={shakeVariants} animate={errors.fullName ? "shake" : ""}>
@@ -173,7 +173,7 @@ export function ContactForm() {
                     <FieldError name="fullName" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <motion.div variants={shakeVariants} animate={errors.email ? "shake" : ""}>
@@ -185,7 +185,7 @@ export function ContactForm() {
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="company" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                       Empresa / Organización <span className="text-red-500">*</span>
                     </label>
                     <motion.div variants={shakeVariants} animate={errors.company ? "shake" : ""}>
@@ -194,7 +194,7 @@ export function ContactForm() {
                     <FieldError name="company" />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                       Teléfono <span className="text-slate-400 font-normal text-xs">(opcional)</span>
                     </label>
                     <Input id="phone" type="tel" placeholder="+507 6000-0000" style={inputStyle} {...register("phone")} />
@@ -202,7 +202,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="service" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                     ¿Qué servicio te interesa? <span className="text-red-500">*</span>
                   </label>
                   <motion.div variants={shakeVariants} animate={errors.service ? "shake" : ""}>
@@ -210,12 +210,12 @@ export function ContactForm() {
                       value={watchService}
                       onValueChange={(val) => setValue("service", val as ContactFormValues["service"], { shouldValidate: true })}
                     >
-                      <SelectTrigger id="service" style={{ ...inputStyle, height: "2.6rem" }} aria-invalid={!!errors.service}>
+                      <SelectTrigger id="service" className="w-full text-[13px]" style={{ ...inputStyle, height: "2.6rem" }} aria-invalid={!!errors.service}>
                         <SelectValue placeholder="Selecciona un servicio..." />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="min-w-[15rem]">
                         {SERVICES.map((s) => (
-                          <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
+                          <SelectItem key={s.value} value={s.value} className="text-[13px]">{s.label}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -224,7 +224,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1.5">
                     Cuéntanos tu problema <span className="text-red-500">*</span>
                   </label>
                   <motion.div variants={shakeVariants} animate={errors.message ? "shake" : ""}>
@@ -251,7 +251,7 @@ export function ContactForm() {
                     aria-invalid={!!errors.acceptComms}
                   />
                   <div>
-                    <label htmlFor="acceptComms" className="text-sm text-slate-600 cursor-pointer">
+                    <label htmlFor="acceptComms" className="text-sm text-slate-600 dark:text-slate-300 cursor-pointer">
                       Acepto recibir comunicaciones de Aether AI <span className="text-red-500">*</span>
                     </label>
                     {errors.acceptComms && (

@@ -9,9 +9,9 @@ export interface ContactFormData {
 }
 
 export type ServiceType =
-  | "knowledge-assistant"
-  | "voice-calling"
-  | "other";
+  | "Conocimiento empresarial"
+  | "Sistema de llamadas con IA"
+  | "Consulta general";
 
 export interface Project {
   number: string;

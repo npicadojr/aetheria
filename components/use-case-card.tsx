@@ -24,9 +24,9 @@ export function UseCaseCard({ icon, gradient, glowColor, borderColor, title, pro
       onHoverEnd={() => setHovered(false)}
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className="bg-white rounded-2xl p-8 relative overflow-hidden"
+      className="bg-white dark:bg-slate-900/80 rounded-2xl p-8 relative overflow-hidden"
       style={{
-        border: `1px solid ${hovered ? borderColor : "#f1f5f9"}`,
+        border: `1px solid ${hovered ? borderColor : "color-mix(in oklab, var(--border) 65%, transparent)"}`,
         boxShadow: hovered
           ? `0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px ${borderColor}40`
           : "0 1px 3px rgba(0,0,0,0.05)",
@@ -57,13 +57,13 @@ export function UseCaseCard({ icon, gradient, glowColor, borderColor, title, pro
       </div>
 
       <h3
-        className="text-lg font-bold text-slate-900 mb-3 leading-snug"
+        className="text-lg font-bold text-slate-900 dark:text-white mb-3 leading-snug"
         style={{ fontFamily: "var(--font-syne, sans-serif)", letterSpacing: "-0.02em" }}
       >
         {title}
       </h3>
 
-      <p className="text-slate-500 text-sm leading-relaxed mb-5">{problem}</p>
+      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5">{problem}</p>
 
       {/* Separator */}
       <div
