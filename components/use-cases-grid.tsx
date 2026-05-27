@@ -35,7 +35,7 @@ export function UseCasesGrid() {
   const inView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
   return (
-    <section id="servicios" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8" style={{ background: "#F8FAFC" }}>
+    <section id="servicios" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <motion.p
@@ -51,7 +51,7 @@ export function UseCasesGrid() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.05 }}
-            className="text-fluid-h2 text-slate-900 mb-5"
+            className="text-fluid-h2 text-slate-900 dark:text-white mb-5"
             style={{ fontFamily: "var(--font-syne, sans-serif)", fontWeight: 800 }}
           >
             Construido para problemas{" "}
@@ -61,7 +61,7 @@ export function UseCasesGrid() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-slate-500 max-w-xl mx-auto text-base leading-relaxed"
+            className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-base leading-relaxed"
           >
             Sistemas de IA que resuelven los problemas tediosos y que consumen
             tiempo de tu equipo

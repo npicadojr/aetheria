@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const syne = Syne({
@@ -62,6 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      suppressHydrationWarning
       className={`${syne.variable} ${dmSans.variable} h-full antialiased`}
     >
       <head>
@@ -77,7 +79,7 @@ export default function RootLayout({
         >
           Saltar al contenido principal
         </a>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
