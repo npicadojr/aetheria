@@ -9,9 +9,9 @@ const item = (delay: number) => ({
 
 const FLOAT_CARDS = [
   {
-    icon: "🎯",
-    label: "Lead calificado",
-    sub: "Score: 94/100 · Presupuesto: Alto",
+    icon: "✨",
+    label: "Flujo optimizado",
+    sub: "Tarea completada · Sin intervención",
     color: "#667eea",
     pos: "top-[18%] right-[6%]",
     delay: 0,
@@ -141,8 +141,8 @@ export function HeroSection() {
           className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           style={{ fontFamily: "var(--font-dm-sans, sans-serif)", fontWeight: 400 }}
         >
-          Sistemas de automatización inteligente que califican leads, analizan
-          datos y toman decisiones—para que tu equipo se enfoque en lo
+          Sistemas de automatización inteligente que analizan datos, conectan
+          herramientas y ejecutan procesos—para que tu equipo se enfoque en lo
           importante.
         </motion.p>
 

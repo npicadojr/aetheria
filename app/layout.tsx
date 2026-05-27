@@ -19,13 +19,13 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Aether AI | Automatización Inteligente para Empresas",
   description:
-    "Sistemas de IA que califican leads, analizan datos y automatizan procesos. Aumenta conversión 40% y ahorra 15+ horas semanales.",
+    "Sistemas de IA que analizan datos, automatizan procesos y reducen trabajo manual. Ahorra 15+ horas semanales con flujos inteligentes.",
   keywords:
-    "IA empresarial, automatización, lead qualification, ERP con IA, Panama",
+    "IA empresarial, automatización, asistentes de conocimiento, llamadas con IA, Panama",
   openGraph: {
     title: "Aether AI | Automatización Inteligente para Empresas",
     description:
-      "Sistemas de IA que califican leads, analizan datos y automatizan procesos.",
+      "Sistemas de IA que analizan datos, automatizan procesos y reducen trabajo manual.",
     type: "website",
     locale: "es_PA",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aether AI | Automatización Inteligente para Empresas",
     description:
-      "Sistemas de IA que califican leads, analizan datos y automatizan procesos.",
+      "Sistemas de IA que analizan datos, automatizan procesos y reducen trabajo manual.",
   },
 };
 
@@ -55,8 +55,6 @@ const jsonLd = {
     contactType: "customer service",
   },
   offers: [
-    { "@type": "Offer", name: "AI Lead Qualification System" },
-    { "@type": "Offer", name: "Smart ERP con IA" },
     { "@type": "Offer", name: "Business Knowledge Assistant" },
     { "@type": "Offer", name: "AI Voice Calling System" },
   ],

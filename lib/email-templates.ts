@@ -9,7 +9,7 @@ export function notificationEmail(data: ContactFormValues): {
     SERVICE_LABELS[data.service] || data.service;
 
   return {
-    subject: `Nuevo Lead - ${serviceName} - ${data.company}`,
+    subject: `Nueva consulta - ${serviceName} - ${data.company}`,
     html: `
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +28,7 @@ export function notificationEmail(data: ContactFormValues): {
 </head>
 <body>
   <div class="header">
-    <h1 style="margin:0;font-size:22px;">🎯 Nuevo Lead — Aether AI</h1>
+    <h1 style="margin:0;font-size:22px;">🎯 Nueva consulta — Aether AI</h1>
     <p style="margin:8px 0 0;opacity:0.9;">${serviceName}</p>
   </div>
   <div class="body">

@@ -38,7 +38,7 @@ export function Footer() {
               Servicios
             </h3>
             <ul className="space-y-2.5">
-              {["Lead Qualification AI", "Smart ERP Systems", "Knowledge Assistants", "AI Voice Calling", "Custom AI Solutions"].map((item) => (
+              {["Knowledge Assistants", "AI Voice Calling", "Workflow Automation", "Custom AI Solutions"].map((item) => (
                 <li key={item}>
                   <span className="text-slate-500 text-sm hover:text-slate-300 transition-colors cursor-default">{item}</span>
                 </li>

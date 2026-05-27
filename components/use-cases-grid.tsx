@@ -6,16 +6,6 @@ import { UseCaseCard } from "./use-case-card";
 
 const USE_CASES = [
   {
-    icon: "🎯",
-    gradient: "linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)",
-    glowColor: "#8B5CF6",
-    borderColor: "#8B5CF6",
-    title: "¿Ahogándote en leads no calificados?",
-    problem:
-      "Tu equipo de ventas pierde horas clasificando formularios. 70% son spam, estudiantes, o curiosos. Cuando respondes a los buenos, ya se fueron.",
-    solution: "IA califica, puntúa y responde leads en menos de 2 minutos",
-  },
-  {
     icon: "📊",
     gradient: "linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)",
     glowColor: "#3B82F6",
@@ -77,7 +67,7 @@ export function UseCasesGrid() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {USE_CASES.map((useCase, i) => (
             <motion.div
               key={useCase.title}

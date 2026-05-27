@@ -14,8 +14,6 @@ import {
 import { Loader2, CheckCircle2 } from "lucide-react";
 
 const SERVICES = [
-  { value: "lead-qualification", label: "AI Lead Qualification System" },
-  { value: "smart-erp", label: "Smart ERP con IA" },
   { value: "knowledge-assistant", label: "Business Knowledge Assistant" },
   { value: "voice-calling", label: "AI Voice Calling System" },
   { value: "other", label: "Otro / Consulta general" },

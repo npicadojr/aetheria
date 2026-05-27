@@ -13,9 +13,9 @@ interface StatItem {
 }
 
 const STATS: StatItem[] = [
-  { value: 40, suffix: "%+", label: "Aumento en conversión", icon: "📈", description: "en leads calificados" },
+  { value: 40, suffix: "%+", label: "Más eficiencia", icon: "📈", description: "en procesos clave" },
   { value: 15, suffix: "hrs", label: "Ahorradas por semana", icon: "⏱️", description: "por equipo promedio" },
-  { prefix: "<", value: 2, suffix: "min", label: "Tiempo de respuesta", icon: "⚡", description: "para calificar leads" },
+  { prefix: "<", value: 2, suffix: "min", label: "Tiempo de respuesta", icon: "⚡", description: "en flujos automatizados" },
   { value: 60, suffix: "%", label: "Menos trabajo manual", icon: "🤖", description: "procesos automatizados" },
 ];
 
