@@ -14,7 +14,7 @@ import {
 import { AlertTriangle, Loader2, CheckCircle2 } from "lucide-react";
 
 const SERVICES = [
-  { value: "Conocimiento empresarial", label: "Conocimiento empresarial" },
+  { value: "Asistente de Conocimiento Empresarial", label: "Asistente de Conocimiento Empresarial" },
   { value: "Sistema de llamadas con IA", label: "Sistema de llamadas con IA" },
   { value: "Consulta general", label: "Consulta general" },
 ];
@@ -213,7 +213,7 @@ export function ContactForm() {
                       <SelectTrigger id="service" className="w-full text-[13px]" style={{ ...inputStyle, height: "2.6rem" }} aria-invalid={!!errors.service}>
                         <SelectValue placeholder="Selecciona un servicio..." />
                       </SelectTrigger>
-                      <SelectContent className="min-w-[15rem]">
+                      <SelectContent className="min-w-[18rem]">
                         {SERVICES.map((s) => (
                           <SelectItem key={s.value} value={s.value} className="text-[13px]">{s.label}</SelectItem>
                         ))}
