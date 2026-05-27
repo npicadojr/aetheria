@@ -2,17 +2,16 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { BookOpenText, PhoneCall } from "lucide-react";
 import { ProjectCard } from "./project-card";
 
 const PROJECTS = [
   {
     number: "01",
-    badge: "Q3 2026",
     badgeColor: "green" as const,
     title: "Asistente de Conocimiento Empresarial",
     description:
       "Los documentos, políticas y conocimiento tribal de tu empresa—buscables en segundos. Sube contratos, manuales, reportes y docs internos, luego haz preguntas como si hablaras con un experto que leyó todo.",
-    techStack: ["Python", "RAG", "Vector Database", "Claude API", "Document Processing"],
     features: [
       "Sube PDFs, Word docs, presentaciones, contratos, manuales",
       "Búsqueda semántica en todos los documentos simultáneamente",
@@ -20,18 +19,16 @@ const PROJECTS = [
       "Maneja consultas complejas que abarcan múltiples documentos",
       "Se actualiza automáticamente cuando se agregan nuevos documentos",
     ],
-    calloutIcon: "📚",
+    calloutIcon: BookOpenText,
     calloutTitle: "Perfecto para:",
     callout: "Firmas legales, agencias consultoras, departamentos de HR — equipos con documentación extensa que necesita ser instantáneamente accesible",
   },
   {
     number: "02",
-    badge: "Nuevo Servicio",
     badgeColor: "purple" as const,
     title: "Sistema de Llamadas por Voz con IA",
     description:
       "Llamadas telefónicas automatizadas impulsadas por IA que agendan citas, conducen encuestas o brindan soporte al cliente—sin intervención humana. Conversaciones naturales que se sienten reales, disponibles 24/7 en múltiples idiomas.",
-    techStack: ["Twilio Voice API", "Claude API", "ElevenLabs Voice", "Speech-to-Text", "Real-time Processing"],
     features: [
       "Agendamiento de citas con integración de calendario",
       "Encuestas de satisfacción del cliente y recopilación de feedback",
@@ -39,7 +36,7 @@ const PROJECTS = [
       "Seguimiento de ventas y recuperación de carritos abandonados",
       "Transcripción y análisis post-llamada automáticos",
     ],
-    calloutIcon: "📞",
+    calloutIcon: PhoneCall,
     calloutTitle: "Perfecto para:",
     callout: "Call centers, equipos de ventas B2B, clínicas médicas, e-commerce — cualquiera que necesite escalar comunicación por voz sin contratar masivamente",
   },

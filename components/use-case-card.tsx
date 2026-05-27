@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
 
 interface UseCaseCardProps {
-  icon: string;
+  icon: LucideIcon;
   gradient: string;
   glowColor: string;
   borderColor: string;
@@ -15,6 +16,7 @@ interface UseCaseCardProps {
 
 export function UseCaseCard({ icon, gradient, glowColor, borderColor, title, problem, solution }: UseCaseCardProps) {
   const [hovered, setHovered] = useState(false);
+  const Icon = icon;
 
   return (
     <motion.div
@@ -43,7 +45,7 @@ export function UseCaseCard({ icon, gradient, glowColor, borderColor, title, pro
 
       {/* Icon */}
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 relative"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 relative"
         style={{
           background: gradient,
           boxShadow: hovered ? `0 8px 24px ${glowColor}40` : "none",
@@ -51,7 +53,7 @@ export function UseCaseCard({ icon, gradient, glowColor, borderColor, title, pro
         }}
         aria-hidden="true"
       >
-        {icon}
+        <Icon size={27} className="text-white" strokeWidth={2.1} />
       </div>
 
       <h3

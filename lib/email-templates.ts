@@ -28,7 +28,7 @@ export function notificationEmail(data: ContactFormValues): {
 </head>
 <body>
   <div class="header">
-    <h1 style="margin:0;font-size:22px;">🎯 Nueva consulta — Aether AI</h1>
+    <h1 style="margin:0;font-size:22px;">Nueva consulta — Aether AI</h1>
     <p style="margin:8px 0 0;opacity:0.9;">${serviceName}</p>
   </div>
   <div class="body">
@@ -47,7 +47,7 @@ export function notificationEmail(data: ContactFormValues): {
     ${
       data.phone
         ? `<div class="field">
-      <div class="label">Teléfono / WhatsApp</div>
+      <div class="label">Teléfono</div>
       <div class="value"><a href="https://wa.me/${data.phone.replace(/\D/g, "")}">${data.phone}</a></div>
     </div>`
         : ""
@@ -89,17 +89,13 @@ export function confirmationEmail(
 </head>
 <body>
   <div class="header">
-    <div style="font-size:48px;margin-bottom:12px;">✅</div>
+    <div style="font-size:40px;line-height:1;margin-bottom:12px;font-weight:700;">OK</div>
     <h1 style="margin:0;font-size:24px;">¡Consulta recibida!</h1>
   </div>
   <div class="body">
     <p>Hola <strong>${name}</strong>,</p>
     <p>Gracias por contactarnos. Hemos recibido tu consulta y nos comunicaremos contigo en las próximas <strong>24 horas hábiles</strong>.</p>
     <p>Mientras tanto, puedes conocer más sobre los sistemas que construimos visitando nuestra página.</p>
-    <hr class="divider">
-    <p style="font-size:13px;color:#64748B;">¿Tienes alguna pregunta urgente? Escríbenos directamente:</p>
-    <p style="font-size:13px;color:#64748B;">📱 WhatsApp: <a href="https://wa.me/50761346051">+507 6134-6051</a></p>
-    <p style="font-size:13px;color:#64748B;">📧 Email: <a href="mailto:developernpicado@gmail.com">developernpicado@gmail.com</a></p>
   </div>
   <div class="footer">
     © 2026 Aether AI · Panamá, Panamá<br>

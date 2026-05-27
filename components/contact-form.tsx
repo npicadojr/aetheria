@@ -11,11 +11,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, Loader2, CheckCircle2 } from "lucide-react";
 
 const SERVICES = [
-  { value: "knowledge-assistant", label: "Business Knowledge Assistant" },
-  { value: "voice-calling", label: "AI Voice Calling System" },
+  { value: "knowledge-assistant", label: "Asistente de conocimiento empresarial" },
+  { value: "voice-calling", label: "Sistema de llamadas con IA" },
   { value: "other", label: "Otro / Consulta general" },
 ];
 
@@ -65,7 +65,7 @@ export function ContactForm() {
   const FieldError = ({ name }: { name: keyof ContactFormValues }) =>
     errors[name] ? (
       <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1" role="alert">
-        <span aria-hidden="true">⚠</span> {errors[name]?.message as string}
+        <AlertTriangle size={13} aria-hidden="true" /> {errors[name]?.message as string}
       </p>
     ) : null;
 
@@ -195,7 +195,7 @@ export function ContactForm() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                      Teléfono / WhatsApp <span className="text-slate-400 font-normal text-xs">(opcional)</span>
+                      Teléfono <span className="text-slate-400 font-normal text-xs">(opcional)</span>
                     </label>
                     <Input id="phone" type="tel" placeholder="+507 6000-0000" style={inputStyle} {...register("phone")} />
                   </div>
@@ -256,7 +256,7 @@ export function ContactForm() {
                     </label>
                     {errors.acceptComms && (
                       <p className="text-red-500 text-xs mt-0.5 flex items-center gap-1" role="alert">
-                        <span aria-hidden="true">⚠</span> {errors.acceptComms.message}
+                        <AlertTriangle size={13} aria-hidden="true" /> {errors.acceptComms.message}
                       </p>
                     )}
                   </div>
@@ -289,21 +289,6 @@ export function ContactForm() {
             )}
           </AnimatePresence>
 
-          {status !== "success" && (
-            <div className="mt-7 pt-6 border-t border-slate-100 text-center">
-              <p className="text-sm text-slate-400 mb-3">O escríbenos directamente:</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
-                <a href="https://wa.me/50761346051" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-semibold text-green-600 hover:text-green-700 transition-colors">
-                  <span aria-hidden="true">📱</span> WhatsApp: +507 6134-6051
-                </a>
-                <a href="mailto:developernpicado@gmail.com"
-                  className="flex items-center gap-2 font-semibold text-violet-600 hover:text-violet-700 transition-colors">
-                  <span aria-hidden="true">✉️</span> developernpicado@gmail.com
-                </a>
-              </div>
-            </div>
-          )}
         </motion.div>
       </div>
     </section>

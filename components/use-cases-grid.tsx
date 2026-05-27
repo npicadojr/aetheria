@@ -2,11 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { ChartNoAxesCombined, Workflow } from "lucide-react";
 import { UseCaseCard } from "./use-case-card";
 
 const USE_CASES = [
   {
-    icon: "📊",
+    icon: ChartNoAxesCombined,
     gradient: "linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)",
     glowColor: "#3B82F6",
     borderColor: "#3B82F6",
@@ -17,7 +18,7 @@ const USE_CASES = [
       "Haz preguntas en lenguaje natural, obtén insights instantáneos de tus datos",
   },
   {
-    icon: "⚡",
+    icon: Workflow,
     gradient: "linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)",
     glowColor: "#06B6D4",
     borderColor: "#06B6D4",

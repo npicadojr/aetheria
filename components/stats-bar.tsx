@@ -2,21 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { Bot, Clock3, TrendingUp, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface StatItem {
   prefix?: string;
   value: number;
   suffix: string;
   label: string;
-  icon: string;
+  icon: LucideIcon;
   description: string;
 }
 
 const STATS: StatItem[] = [
-  { value: 40, suffix: "%+", label: "Más eficiencia", icon: "📈", description: "en procesos clave" },
-  { value: 15, suffix: "hrs", label: "Ahorradas por semana", icon: "⏱️", description: "por equipo promedio" },
-  { prefix: "<", value: 2, suffix: "min", label: "Tiempo de respuesta", icon: "⚡", description: "en flujos automatizados" },
-  { value: 60, suffix: "%", label: "Menos trabajo manual", icon: "🤖", description: "procesos automatizados" },
+  { value: 40, suffix: "%+", label: "Más eficiencia", icon: TrendingUp, description: "en procesos clave" },
+  { value: 15, suffix: "hrs", label: "Ahorradas por semana", icon: Clock3, description: "por equipo promedio" },
+  { prefix: "<", value: 2, suffix: "min", label: "Tiempo de respuesta", icon: Zap, description: "en flujos automatizados" },
+  { value: 60, suffix: "%", label: "Menos trabajo manual", icon: Bot, description: "procesos automatizados" },
 ];
 
 function AnimatedCounter({ value, prefix = "", suffix = "" }: { value: number; prefix?: string; suffix?: string }) {
@@ -41,7 +43,10 @@ export function StatsBar() {
       <div className="dot-grid-light absolute inset-0 pointer-events-none" aria-hidden="true" />
       <div className="max-w-5xl mx-auto relative">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {STATS.map((stat, i) => (
+          {STATS.map((stat, i) => {
+            const Icon = stat.icon;
+
+            return (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 24 }}
@@ -49,7 +54,9 @@ export function StatsBar() {
               transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="gradient-border-top bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="text-2xl mb-2" aria-hidden="true">{stat.icon}</div>
+              <div className="mb-2 flex justify-center" aria-hidden="true">
+                <Icon size={26} className="text-violet-500" strokeWidth={2.1} />
+              </div>
               <div
                 className="text-4xl sm:text-5xl font-bold mb-1.5 leading-none"
                 style={{
@@ -66,7 +73,8 @@ export function StatsBar() {
               <p className="text-sm font-semibold text-slate-700 mb-0.5" style={{ fontFamily: "var(--font-syne, sans-serif)" }}>{stat.label}</p>
               <p className="text-xs text-slate-400">{stat.description}</p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

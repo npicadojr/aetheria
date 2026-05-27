@@ -48,15 +48,9 @@ const jsonLd = {
     addressLocality: "Panamá",
     addressCountry: "PA",
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "developernpicado@gmail.com",
-    telephone: "+507-6134-6051",
-    contactType: "customer service",
-  },
   offers: [
-    { "@type": "Offer", name: "Business Knowledge Assistant" },
-    { "@type": "Offer", name: "AI Voice Calling System" },
+    { "@type": "Offer", name: "Asistente de conocimiento empresarial" },
+    { "@type": "Offer", name: "Sistema de llamadas con IA" },
   ],
 };
 
