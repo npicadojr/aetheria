@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/components/projects-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
+import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <ContactForm />
       </main>
       <Footer />
+      <FloatingContactButtons />
     </>
   );
 }

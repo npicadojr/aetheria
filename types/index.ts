@@ -9,7 +9,7 @@ export interface ContactFormData {
 }
 
 export type ServiceType =
-  | "Conocimiento empresarial"
+  | "Asistente de Conocimiento Empresarial"
   | "Sistema de llamadas con IA"
   | "Consulta general";
 

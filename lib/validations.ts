@@ -13,7 +13,7 @@ export const contactSchema = z.object({
   phone: z.string().optional(),
   service: z.enum(
     [
-      "Conocimiento empresarial",
+      "Asistente de Conocimiento Empresarial",
       "Sistema de llamadas con IA",
       "Consulta general",
     ],
@@ -29,7 +29,7 @@ export const contactSchema = z.object({
 export type ContactFormValues = z.infer<typeof contactSchema>;
 
 export const SERVICE_LABELS: Record<string, string> = {
-  "Conocimiento empresarial": "Conocimiento empresarial",
+  "Asistente de Conocimiento Empresarial": "Asistente de Conocimiento Empresarial",
   "Sistema de llamadas con IA": "Sistema de llamadas con IA",
   "Consulta general": "Consulta general",
 };
