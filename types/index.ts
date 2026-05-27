@@ -9,8 +9,6 @@ export interface ContactFormData {
 }
 
 export type ServiceType =
-  | "lead-qualification"
-  | "smart-erp"
   | "knowledge-assistant"
   | "voice-calling"
   | "other";
