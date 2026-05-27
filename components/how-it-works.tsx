@@ -2,31 +2,32 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { DraftingCompass, Rocket, Search, Settings } from "lucide-react";
 
 const STEPS = [
   {
     number: "1",
     title: "Llamada de Descubrimiento",
     description: "Consulta de 30 minutos para entender tus mayores desperdicios de tiempo y ver si IA puede ayudar",
-    icon: "🔍",
+    icon: Search,
   },
   {
     number: "2",
     title: "Diseño del Sistema",
     description: "Mapeamos tu workflow, definimos requerimientos y creamos un blueprint técnico",
-    icon: "📐",
+    icon: DraftingCompass,
   },
   {
     number: "3",
     title: "Desarrollo",
     description: "Construimos el sistema con check-ins semanales. Ves progreso, no solo al final",
-    icon: "⚙️",
+    icon: Settings,
   },
   {
     number: "4",
     title: "Despliegue y Capacitación",
     description: "Lanzamos con tu equipo, capacitamos usuarios clave, proveemos documentación y soporte continuo",
-    icon: "🚀",
+    icon: Rocket,
   },
 ];
 
@@ -92,7 +93,10 @@ export function HowItWorks() {
             <div className="w-full h-px border-t-2 border-dashed" style={{ borderColor: "rgba(102,126,234,0.3)" }} />
           </div>
 
-          {STEPS.map((step, i) => (
+          {STEPS.map((step, i) => {
+            const Icon = step.icon;
+
+            return (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 30 }}
@@ -108,7 +112,7 @@ export function HowItWorks() {
                 }}
                 aria-hidden="true"
               >
-                <span className="text-2xl mb-0.5">{step.icon}</span>
+                <Icon size={25} className="text-white mb-0.5" strokeWidth={2.1} />
                 <span
                   className="text-white text-sm font-bold"
                   style={{ fontFamily: "var(--font-syne, sans-serif)" }}
@@ -125,7 +129,8 @@ export function HowItWorks() {
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA bottom */}

@@ -29,7 +29,7 @@ export const contactSchema = z.object({
 export type ContactFormValues = z.infer<typeof contactSchema>;
 
 export const SERVICE_LABELS: Record<string, string> = {
-  "knowledge-assistant": "Business Knowledge Assistant",
-  "voice-calling": "AI Voice Calling System",
+  "knowledge-assistant": "Asistente de conocimiento empresarial",
+  "voice-calling": "Sistema de llamadas con IA",
   other: "Otro / Consulta general",
 };

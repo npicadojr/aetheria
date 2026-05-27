@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Rocket, Sparkles, TrendingUp, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const item = (delay: number) => ({
   initial: { opacity: 0, y: 32 },
@@ -9,7 +11,7 @@ const item = (delay: number) => ({
 
 const FLOAT_CARDS = [
   {
-    icon: "✨",
+    icon: Sparkles,
     label: "Flujo optimizado",
     sub: "Tarea completada · Sin intervención",
     color: "#667eea",
@@ -17,7 +19,7 @@ const FLOAT_CARDS = [
     delay: 0,
   },
   {
-    icon: "⚡",
+    icon: Zap,
     label: "Proceso automatizado",
     sub: "Tiempo ahorrado: 15h/semana",
     color: "#8B5CF6",
@@ -25,7 +27,7 @@ const FLOAT_CARDS = [
     delay: 0.4,
   },
   {
-    icon: "📈",
+    icon: TrendingUp,
     label: "Conversión aumentada",
     sub: "+40% en 30 días",
     color: "#06B6D4",
@@ -33,6 +35,15 @@ const FLOAT_CARDS = [
     delay: 0.8,
   },
 ];
+
+type FloatCard = {
+  icon: LucideIcon;
+  label: string;
+  sub: string;
+  color: string;
+  pos: string;
+  delay: number;
+};
 
 export function HeroSection() {
   const handleScroll = (href: string) => {
@@ -71,7 +82,10 @@ export function HeroSection() {
       <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" aria-hidden="true" />
 
       {/* Floating cards */}
-      {FLOAT_CARDS.map((card) => (
+      {(FLOAT_CARDS as FloatCard[]).map((card) => {
+        const Icon = card.icon;
+
+        return (
         <motion.div
           key={card.label}
           className={`absolute hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl ${card.pos}`}
@@ -98,17 +112,18 @@ export function HeroSection() {
             className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
             style={{ background: `${card.color}22`, border: `1px solid ${card.color}44` }}
           >
-            {card.icon}
+            <Icon size={18} color={card.color} strokeWidth={2.2} />
           </div>
           <div>
             <p className="text-white text-xs font-semibold leading-tight">{card.label}</p>
             <p className="text-slate-400 text-[10px] mt-0.5 leading-tight">{card.sub}</p>
           </div>
         </motion.div>
-      ))}
+        );
+      })}
 
       {/* Main content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center -translate-y-5 sm:-translate-y-7">
         {/* Badge */}
         <motion.div
           {...item(0)}
@@ -121,8 +136,8 @@ export function HeroSection() {
             fontFamily: "var(--font-dm-sans, sans-serif)",
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" aria-hidden="true" />
-          🚀 AI Business Systems
+          <Rocket size={16} strokeWidth={2.2} aria-hidden="true" />
+          AI Business Systems
         </motion.div>
 
         {/* Headline */}
@@ -197,7 +212,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}

@@ -17,13 +17,10 @@ export interface Project {
   number: string;
   title: string;
   description: string;
-  badge: string;
   badgeColor: "yellow" | "blue" | "green" | "purple";
-  techStack: string[];
   features: string[];
   metrics?: { value: string; label: string }[];
   callout: string;
-  calloutIcon: string;
   calloutTitle: string;
 }
 

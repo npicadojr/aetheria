@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
 
 const BADGE_STYLES: Record<string, {
   bg: string; text: string; border: string; calloutBg: string; glow: string;
@@ -16,19 +17,17 @@ interface ProjectCardProps {
   number: string;
   title: string;
   description: string;
-  badge: string;
   badgeColor: "yellow" | "blue" | "green" | "purple";
-  techStack: string[];
   features: string[];
   metrics?: { value: string; label: string }[];
   callout: string;
-  calloutIcon: string;
+  calloutIcon: LucideIcon;
   calloutTitle: string;
 }
 
 export function ProjectCard({
-  number, title, description, badge, badgeColor,
-  techStack, features, metrics, callout, calloutIcon, calloutTitle,
+  number, title, description, badgeColor,
+  features, metrics, callout, calloutIcon: CalloutIcon, calloutTitle,
 }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const s = BADGE_STYLES[badgeColor];
@@ -58,17 +57,6 @@ export function ProjectCard({
         aria-hidden="true"
       />
 
-      {/* Badge */}
-      <div className="absolute top-5 right-5 z-10">
-        <span
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
-          style={{ background: s.bg, color: s.text }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.text }} aria-hidden="true" />
-          {badge}
-        </span>
-      </div>
-
       {/* Number */}
       <div
         className="text-8xl font-black leading-none mb-3 select-none"
@@ -87,30 +75,12 @@ export function ProjectCard({
       </div>
 
       <h3
-        className="text-xl font-bold text-slate-900 mb-3 pr-20 leading-snug"
+        className="text-xl font-bold text-slate-900 mb-3 leading-snug"
         style={{ fontFamily: "var(--font-syne, sans-serif)", letterSpacing: "-0.025em" }}
       >
         {title}
       </h3>
       <p className="text-slate-500 text-sm leading-relaxed mb-6">{description}</p>
-
-      {/* Tech stack */}
-      <div className="flex flex-wrap gap-1.5 mb-6" aria-label="Stack tecnológico">
-        {techStack.map((tech) => (
-          <span
-            key={tech}
-            className="px-2.5 py-1 rounded-lg text-xs font-medium transition-colors"
-            style={{
-              background: hovered ? `${s.bg}` : "#f8fafc",
-              color: hovered ? s.text : "#64748B",
-              border: `1px solid ${hovered ? s.border + "60" : "#e2e8f0"}`,
-              transition: "background 0.2s, color 0.2s, border-color 0.2s",
-            }}
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
 
       {/* Metrics */}
       {metrics && (
@@ -154,7 +124,10 @@ export function ProjectCard({
         className="rounded-xl p-4 border-l-4 text-sm mt-auto"
         style={{ background: s.calloutBg, borderLeftColor: s.border }}
       >
-        <span className="font-semibold" style={{ color: s.text }}>{calloutIcon} {calloutTitle}</span>{" "}
+        <span className="inline-flex items-center gap-1.5 font-semibold" style={{ color: s.text }}>
+          <CalloutIcon size={15} strokeWidth={2.2} aria-hidden="true" />
+          {calloutTitle}
+        </span>{" "}
         <span className="text-slate-600">{callout}</span>
       </div>
     </motion.div>
