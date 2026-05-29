@@ -69,9 +69,9 @@ export function Navigation() {
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
         >
           <span className="transition-colors" style={{ color: scrolled ? "var(--foreground)" : "#fff" }}>
-            Aether
+            Aether IA
           </span>
-          <span className="text-gradient-primary"> AI</span>
+          <span className="text-gradient-primary"> Systems</span>
         </a>
 
         {/* Desktop links */}

@@ -69,7 +69,7 @@ export function MobileNav({ links, scrolled }: MobileNavProps) {
             >
               <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-800">
                 <span className="font-bold text-xl text-slate-900 dark:text-white">
-                  Aether <span className="text-gradient-primary">AI</span>
+                  Aether IA <span className="text-gradient-primary">Systems</span>
                 </span>
                 <button
                   onClick={() => setOpen(false)}
